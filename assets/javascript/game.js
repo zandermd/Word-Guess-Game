@@ -16,7 +16,8 @@ let generateUnderscore = () => {
 console.log(generateUnderscore());
 // get users guess
 document.addEventListener('keypress', (event) => {
-    console.log(event);
+let keycode = event.keyCode;
+console.log(keyCode);
 });
 // check if guess is right
 // if right push to right array 
