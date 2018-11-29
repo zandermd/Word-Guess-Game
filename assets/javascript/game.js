@@ -1,24 +1,37 @@
-// create an array of words
-const word = ['california','utah','colorado'];
-// choose words randomly
-let randNum = Math.floor(Math.random() * word.length);
-let choosenWord = word[randNum];
-let underScore = [];
-console.log(choosenWord);
-// create underscores based on length of word
-let generateUnderscore = () => {
-    for (let i = 0; i < choosenWord.length; i++) {
-        underScore.push('_');
+var wins = 0;
+var losses = 0;
+var guessRemaining = 10;
+var wordList = ["Arizona", "Caliornia", "Washington", "Colorado", "Texas"];
+var guessingWord = [];
+var blanks = [];
+var wrongGuess = [];
+var answer = [];
+
+function playGame() {
+    answer = wordList[Math.floor(Math.random() * wordList.length)];
+    guessingWord = answer.split("");
+    for (var i = 0; i < guessingWord.length; i++) {
+        console.log(guessingWord[i]);
+        blanks.push("_");
+        //var underScoreWord = blanks.replace(guessingWord[i], "_");
     }
-    return underScore;
+    //console.log(splitWord);
+    //document.getElementById("underscore").innerHTML = guessingWord;
+    //console.log(answer);
+    console.log(guessingWord);
+    console.log(blanks);
+    //console.log(underscoreWord);
+    var underscoere = document.getElementById("underscore");
+    underscoere.innerHTML = blanks;
+
+
 }
 
-console.log(generateUnderscore());
-// get users guess
-document.addEventListener('keypress', (event) => {
-let keycode = event.keyCode;
-console.log(keyCode);
-});
-// check if guess is right
-// if right push to right array 
-// if wrong push to wrong array 
+function checkLetter(event) {
+    var guessedLetter = event.keyCode;
+    console.log(guessedLetter);
+}
+//console.log(guessedLetter);
+
+playGame()
+checkLetter()
